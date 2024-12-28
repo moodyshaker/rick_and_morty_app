@@ -1,16 +1,42 @@
-# rick_and_morty_app
+# Rick And Morty App
 
-A new Flutter project.
+## Used Packages
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Build system for Dart code generation and modular compilation
+#### * build_runner: ^2.4.7
+### Package to manage business logic and state of our app
+#### * flutter_bloc: ^8.1.3
+### Code generation for immutable classes
+#### * freezed: ^2.4.5
+### Annotations for the freezed code-generator
+#### * freezed_annotation: ^2.4.1
+### Service Locator that allows to access the concrete implementation from everywhere in your App
+#### * get_it: ^7.6.4
+### Automatically generate code for converting to and from JSON
+#### * json_serializable: ^6.7.1
+### Classes and helper functions that support JSON code generation
+#### * json_annotation: ^4.9.0
+### HTTP networking package
+#### * dio: ^5.3.3
+### Type conversion dio client generator ease and manage api calls
+#### * retrofit: ^4.4.1
+### Dio client generator
+#### * retrofit_generator: ^9.1.5
+### Dio interceptor that logs network calls in a pretty, easy to read format
+#### * pretty_dio_logger: ^1.3.1
+### Deal with internationalized/localized messages, date and number formatting and parsing
+#### * intl: ^0.19.0
+### A flutter plugin for adapting screen and font size
+#### * flutter_screenutil: ^5.9.0
+### A collection of loading indicators animated
+#### * flutter_spinkit: ^5.2.1
+### Package provides an easy way to add shimmer effect in Flutter project
+#### * shimmer: ^3.0.0
+### Package for easy use of images with shimmer effect while loading
+#### * fancy_shimmer_image: ^2.0.3
+### Package which simplifies the task of updating your Flutter app's launcher icon
+#### * flutter_launcher_icons: 0.14.2
+### Creates animated splash screen in a fully customizable way
+#### * animated_splash_screen: ^1.3.0
+### Flutter plugin for reading and writing simple key-value pairs
+#### * shared_preferences: ^2.3.4

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:rick_and_morty_app/features/home_screen/presentation/bloc/home_bloc.dart';
 
 import '../networking/dio_factory.dart';
 
@@ -12,11 +13,11 @@ Future<void> setupGetIt() async {
   Dio dio = DioFactory.init();
   // getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   //
-  // // login cubit & login repo
-  // getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(apiService: getIt()));
-  // getIt.registerFactory<LoginCubit>(() => LoginCubit(loginRepo: getIt()));
-  //
+  // home cubit initialize
+  getIt.registerFactory<HomeCubit>(() => HomeCubit());
+
   // // register cubit & register repo
+  // getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(apiService: getIt()));
   // getIt.registerLazySingleton<RegisterRepo>(
   //     () => RegisterRepo(apiService: getIt()));
   // getIt.registerFactory<RegisterCubit>(

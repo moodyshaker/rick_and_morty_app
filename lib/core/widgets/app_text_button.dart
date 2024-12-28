@@ -9,20 +9,23 @@ class AppTextButton extends StatelessWidget {
   final double? verticalPadding;
   final double? buttonWidth;
   final double? buttonHeight;
-  final String buttonText;
-  final TextStyle textStyle;
+  final String title;
+  final Color? titleColor;
+  final double? titleFontSize;
   final VoidCallback onPressed;
-  const AppTextButton({
-    super.key,
+
+  const AppTextButton(
+    this.title, {
+    required this.onPressed,
     this.borderRadius,
+    this.titleColor,
     this.backgroundColor,
     this.horizontalPadding,
     this.verticalPadding,
+    this.titleFontSize,
     this.buttonHeight,
     this.buttonWidth,
-    required this.buttonText,
-    required this.textStyle,
-    required this.onPressed,
+    super.key,
   });
 
   @override
@@ -35,7 +38,7 @@ class AppTextButton extends StatelessWidget {
           ),
         ),
         backgroundColor: WidgetStatePropertyAll(
-          backgroundColor ?? ColorsManager.mainBlue,
+          backgroundColor ?? ColorsManager.mainColor,
         ),
         padding: WidgetStateProperty.all<EdgeInsets>(
           EdgeInsets.symmetric(
@@ -49,8 +52,11 @@ class AppTextButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       child: Text(
-        buttonText,
-        style: textStyle,
+        title,
+        style: TextStyle(
+          color: titleColor ?? ColorsManager.white,
+          fontSize: titleFontSize ?? 16.sp,
+        ),
       ),
     );
   }
