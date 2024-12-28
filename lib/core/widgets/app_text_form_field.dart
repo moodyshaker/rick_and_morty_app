@@ -64,7 +64,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
           focusedBorder: widget.focusedBorder ??
               OutlineInputBorder(
                 borderSide: const BorderSide(
-                  color: ColorsManager.mainBlue,
+                  color: ColorsManager.mainColor,
                   width: 1.3,
                 ),
                 borderRadius: BorderRadius.circular(16.0),

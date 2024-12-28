@@ -10,7 +10,7 @@ class AppLoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: SpinKitDoubleBounce(
-        color: ColorsManager.mainBlue,
+        color: ColorsManager.mainColor,
       ),
     );
   }
