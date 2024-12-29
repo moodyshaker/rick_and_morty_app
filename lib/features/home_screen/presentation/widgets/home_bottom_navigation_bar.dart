@@ -1,3 +1,4 @@
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,35 +7,31 @@ import '../../../../core/theming/colors.dart';
 import '../bloc/home_bloc.dart';
 
 class HomeBottomNavigationBar extends StatelessWidget {
-   const HomeBottomNavigationBar({super.key});
+  const HomeBottomNavigationBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-        selectedItemColor: ColorsManager.mainColor,
-        currentIndex: context.read<HomeCubit>().currentIndex,
-        onTap: context.read<HomeCubit>().changeCurrent,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-              icon: Image.asset(
-                  'character_icon_2'.png,
-                  height: 30.h,
-                  width: 30.h,
-                  color: context.read<HomeCubit>().currentIndex == 0
-                      ? ColorsManager.mainColor
-                      : null),
-              label: 'Characters'),
-          BottomNavigationBarItem(
-              icon: Image.asset(
-                  'favourite_icon'.png,
-                  height: 24.h,
-                  width: 24.h,
-                  color: context.read<HomeCubit>().currentIndex == 1
-                      ? ColorsManager.mainColor
-                      : null
-              ),
-              label: 'Favourites'),
-        ]);
+    return AnimatedBottomNavigationBar.builder(
+        itemCount: context.read<HomeCubit>().iconList.length,
+        height: 60.h,
+        tabBuilder: (int index, bool isActive) {
+          final color = isActive ? ColorsManager.mainColor : ColorsManager.gray;
+          return Center(
+            child: Image.asset(
+              context.read<HomeCubit>().iconList[index].png,
+              height: 30.h,
+              width: 30.w,
+              color: color,
+            ),
+          );
+        },
+        borderColor: ColorsManager.lighterGray,
+        backgroundColor: ColorsManager.white,
+        activeIndex: context.read<HomeCubit>().currentIndex,
+        splashColor: ColorsManager.mainColor,
+        splashSpeedInMilliseconds: 300,
+        notchSmoothness: NotchSmoothness.verySmoothEdge,
+        gapLocation: GapLocation.none,
+        onTap:  context.read<HomeCubit>().changeCurrent);
   }
 }

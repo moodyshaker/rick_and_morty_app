@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty_app/core/di/dependency_injection.dart';
 import 'package:rick_and_morty_app/core/theming/colors.dart';
+import 'package:rick_and_morty_app/features/splash_screen.dart';
 import 'features/home_screen/presentation/screens/home_screen.dart';
 
 class MyApp extends StatelessWidget {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           ),
           useMaterial3: false,
         ),
-        home: const HomeScreen(),
+        home: const SplashScreen(),
       ),
     );
   }

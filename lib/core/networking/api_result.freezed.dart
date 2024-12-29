@@ -19,19 +19,19 @@ mixin _$ApiResult<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(String error) failure,
+    required TResult Function(ApiErrorModel error) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(String error)? failure,
+    TResult? Function(ApiErrorModel error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(String error)? failure,
+    TResult Function(ApiErrorModel error)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,7 +147,7 @@ class _$SuccussImpl<T> implements Succuss<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(String error) failure,
+    required TResult Function(ApiErrorModel error) failure,
   }) {
     return success(data);
   }
@@ -156,7 +156,7 @@ class _$SuccussImpl<T> implements Succuss<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(String error)? failure,
+    TResult? Function(ApiErrorModel error)? failure,
   }) {
     return success?.call(data);
   }
@@ -165,7 +165,7 @@ class _$SuccussImpl<T> implements Succuss<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(String error)? failure,
+    TResult Function(ApiErrorModel error)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -224,7 +224,7 @@ abstract class _$$FailureImplCopyWith<T, $Res> {
           _$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
       __$$FailureImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel error});
 }
 
 /// @nodoc
@@ -246,7 +246,7 @@ class __$$FailureImplCopyWithImpl<T, $Res>
       null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ApiErrorModel,
     ));
   }
 }
@@ -257,7 +257,7 @@ class _$FailureImpl<T> implements Failure<T> {
   const _$FailureImpl(this.error);
 
   @override
-  final String error;
+  final ApiErrorModel error;
 
   @override
   String toString() {
@@ -287,7 +287,7 @@ class _$FailureImpl<T> implements Failure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(String error) failure,
+    required TResult Function(ApiErrorModel error) failure,
   }) {
     return failure(error);
   }
@@ -296,7 +296,7 @@ class _$FailureImpl<T> implements Failure<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(String error)? failure,
+    TResult? Function(ApiErrorModel error)? failure,
   }) {
     return failure?.call(error);
   }
@@ -305,7 +305,7 @@ class _$FailureImpl<T> implements Failure<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(String error)? failure,
+    TResult Function(ApiErrorModel error)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -347,9 +347,9 @@ class _$FailureImpl<T> implements Failure<T> {
 }
 
 abstract class Failure<T> implements ApiResult<T> {
-  const factory Failure(final String error) = _$FailureImpl<T>;
+  const factory Failure(final ApiErrorModel error) = _$FailureImpl<T>;
 
-  String get error;
+  ApiErrorModel get error;
 
   /// Create a copy of ApiResult
   /// with the given fields replaced by the non-null parameter values.

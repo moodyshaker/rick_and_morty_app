@@ -18,10 +18,12 @@ class AppTextFormField extends StatefulWidget {
   final double? typingTextSize;
   final double? hintTextSize;
   final Color? hintTextColor;
+  final TextInputAction? textInputAction;
   final Color? typingTextColor;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final Function()? onTap;
+  final Function(String)? onSubmit;
 
   const AppTextFormField({
     super.key,
@@ -29,6 +31,7 @@ class AppTextFormField extends StatefulWidget {
     this.focusedBorder,
     this.readOnly = false,
     this.enabledBorder,
+    this.textInputAction,
     this.inputTextStyle,
     this.typingTextColor,
     this.typingTextSize,
@@ -37,6 +40,7 @@ class AppTextFormField extends StatefulWidget {
     this.hintStyle,
     this.inputType,
     this.onTap,
+    this.onSubmit,
     required this.hintText,
     this.isPassword = false,
     this.isPhone = false,
@@ -119,6 +123,11 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
           color: widget.typingTextColor ?? ColorsManager.black),
       validator: widget.validator,
       readOnly: widget.readOnly,
+      onFieldSubmitted: widget.onSubmit,
+      textInputAction: widget.textInputAction,
+      onTapOutside: (PointerDownEvent event) {
+        FocusScope.of(context).unfocus();
+      },
       onTapAlwaysCalled: widget.onTap != null,
       onTap: widget.onTap,
     );
