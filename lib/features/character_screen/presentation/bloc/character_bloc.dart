@@ -9,9 +9,9 @@ import '../../../../core/networking/api_result.dart';
 import '../../domain/entity/character_entity.dart';
 
 class CharacterCubit extends Cubit<CharacterStates> {
-  final GetCharacterUseCase getCharacterUseCase;
+  final GetCharacterUseCase useCase;
 
-  CharacterCubit(this.getCharacterUseCase) : super(CharacterInitState());
+  CharacterCubit(this.useCase) : super(CharacterInitState());
 
   TextEditingController characterNameController = TextEditingController();
   TextEditingController characterStatusController = TextEditingController();
@@ -32,7 +32,7 @@ class CharacterCubit extends Cubit<CharacterStates> {
     characters = [];
     clearControllers();
     emit(CharacterLoadingState());
-    ApiResult<CharacterEntity> characterEntity = await getCharacterUseCase(
+    ApiResult<CharacterEntity> characterEntity = await useCase(
       page,
       characterStatus: characterStatusController.text,
       characterSpecies: characterSpeciesController.text,
@@ -51,7 +51,7 @@ class CharacterCubit extends Cubit<CharacterStates> {
     page = 1;
     characters = [];
     emit(CharacterLoadingState());
-    ApiResult<CharacterEntity> characterEntity = await getCharacterUseCase(
+    ApiResult<CharacterEntity> characterEntity = await useCase(
       page,
       characterStatus: characterStatusController.text,
       characterSpecies: characterSpeciesController.text,
@@ -70,7 +70,7 @@ class CharacterCubit extends Cubit<CharacterStates> {
     if (pageInfo != null && (page < pageInfo!.pages!.toInt())) {
       page++;
       emit(CharacterSuccessState(characters, isPaging: true));
-      ApiResult<CharacterEntity> characterEntity = await getCharacterUseCase(
+      ApiResult<CharacterEntity> characterEntity = await useCase(
         page,
         characterStatus: characterStatusController.text,
         characterSpecies: characterSpeciesController.text,

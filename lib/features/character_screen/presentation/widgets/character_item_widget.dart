@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty_app/core/helpers/app_extensions.dart';
 import 'package:rick_and_morty_app/core/theming/colors.dart';
 import 'package:rick_and_morty_app/core/theming/font_weight_helper.dart';
+import 'package:rick_and_morty_app/features/character_details_screen/presentation/screens/character_details_screen.dart';
 import 'package:rick_and_morty_app/features/character_screen/presentation/widgets/character_item_info_widget.dart';
 import '../../../../core/widgets/app_main_text.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
@@ -16,7 +17,7 @@ class CharacterItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w,vertical: 8.h),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
       decoration: BoxDecoration(
           color: ColorsManager.moreLighterGray,
           borderRadius: BorderRadius.circular(8.r),
@@ -52,13 +53,19 @@ class CharacterItemWidget extends StatelessWidget {
             color: ColorsManager.black,
           ),
           8.hSpace,
-          CharacterItemInfoWidget(infoTitle: 'Species:', infoData: character.species ?? ''),
+          CharacterItemInfoWidget(
+              infoTitle: 'Species:', infoData: character.species ?? ''),
           4.hSpace,
-          CharacterItemInfoWidget(infoTitle: 'Status:', infoData: character.status ?? ''),
+          CharacterItemInfoWidget(
+              infoTitle: 'Status:', infoData: character.status ?? ''),
           4.hSpace,
-          CharacterItemInfoWidget(infoTitle: 'Gender:', infoData: character.gender ?? ''),
+          CharacterItemInfoWidget(
+              infoTitle: 'Gender:', infoData: character.gender ?? ''),
         ],
       ),
-    );
+    ).onPressed(() {
+      context.push(CharacterDetailsScreen(
+          id: character.id!, characterName: character.name!));
+    });
   }
 }
