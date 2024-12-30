@@ -9,9 +9,6 @@ class CharacterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<CharacterCubit>()..getCharacterData(),
-      child: const CharacterBlocBuilderWidget()
-    );
+    return const CharacterBlocBuilderWidget();
   }
 }

@@ -11,7 +11,6 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import '../networking/dio_factory.dart';
 
 final getIt = GetIt.instance;
-final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> setupGetIt() async {
   // Dio

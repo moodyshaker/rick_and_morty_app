@@ -24,7 +24,7 @@ class CharacterItemInfoWidget extends StatelessWidget {
         ),
         4.wSpace,
         AppMainText(
-          infoData,
+          infoData.split(' ').first,
           font: 11.sp,
           color: ColorsManager.mainColor,
         ),
