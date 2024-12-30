@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'character_remote_data_source.dart';
+part of 'character_details_remote_data_source.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'character_remote_data_source.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _CharacterApiService implements CharacterApiService {
-  _CharacterApiService(
+class _CharacterDetailsApiService implements CharacterDetailsApiService {
+  _CharacterDetailsApiService(
     this._dio, {
     this.baseUrl,
   }) {
@@ -21,30 +21,19 @@ class _CharacterApiService implements CharacterApiService {
   String? baseUrl;
 
   @override
-  Future<CharacterResponseModel> charactersListData(
-    String? characterName,
-    String? characterStatus,
-    String? characterSpecies,
-    int currentPage,
-  ) async {
+  Future<CharacterDetailsResponseModel> characterDetailsData(int id) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'name': characterName,
-      r'status': characterStatus,
-      r'species': characterSpecies,
-      r'page': currentPage,
-    };
-    queryParameters.removeWhere((k, v) => v == null);
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<CharacterResponseModel>(Options(
+    final _options = _setStreamType<CharacterDetailsResponseModel>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          'character',
+          'character/${id}',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -54,9 +43,9 @@ class _CharacterApiService implements CharacterApiService {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late CharacterResponseModel _value;
+    late CharacterDetailsResponseModel _value;
     try {
-      _value = CharacterResponseModel.fromJson(_result.data!);
+      _value = CharacterDetailsResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       rethrow;
     }
