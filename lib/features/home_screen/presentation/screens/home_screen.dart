@@ -10,6 +10,7 @@ import 'package:rick_and_morty_app/features/character_screen/presentation/bloc/c
 import 'package:rick_and_morty_app/features/home_screen/presentation/bloc/home_states.dart';
 import 'package:rick_and_morty_app/features/home_screen/presentation/widgets/home_bottom_navigation_bar.dart';
 
+import '../../../favourite_screen/presentation/bloc/favourite_bloc.dart';
 import '../bloc/home_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,7 +22,8 @@ class HomeScreen extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => getIt<HomeCubit>(),
-        ),BlocProvider(
+        ),
+        BlocProvider(
           create: (context) => getIt<CharacterCubit>()..getCharacterData(),
         ),
       ],
@@ -43,12 +45,18 @@ class HomeScreen extends StatelessWidget {
                     weight: FontWeightHelper.bold,
                   ),
                 ),
-                Image.asset(
-                  'retry_icon'.png,
-                  height: 24.h,
-                  width: 24.w,
-                  color: ColorsManager.white,
-                ).onPressed(context.read<CharacterCubit>().reloadCharacterData),
+                context.read<HomeCubit>().currentIndex == 0
+                    ? Image.asset(
+                        'retry_icon'.png,
+                        height: 24.h,
+                        width: 24.w,
+                        color: ColorsManager.white,
+                      ).onPressed(
+                        context.read<CharacterCubit>().reloadCharacterData)
+                    : SizedBox(
+                        height: 24.h,
+                        width: 24.w,
+                      ),
               ],
             ),
           ),
