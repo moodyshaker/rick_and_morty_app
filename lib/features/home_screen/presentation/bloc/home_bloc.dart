@@ -12,6 +12,11 @@ class HomeCubit extends Cubit<HomeState> {
   String title = 'Characters';
   Widget currentScreen = const CharacterScreen();
 
+  List<String> iconList = [
+    'character_icon',
+    'favourite_icon',
+  ];
+
   void changeCurrent(int i) {
     currentIndex = i;
     changeCurrentScreen();

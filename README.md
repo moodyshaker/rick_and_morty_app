@@ -38,5 +38,11 @@
 #### * flutter_launcher_icons: 0.14.2
 ### Creates animated splash screen in a fully customizable way
 #### * animated_splash_screen: ^1.3.0
-### Flutter plugin for reading and writing simple key-value pairs
-#### * shared_preferences: ^2.3.4
+### Animated Bottom Navigation Bar
+#### * animated_bottom_navigation_bar: ^1.3.3
+### Flutter plugin for SQLite local database
+#### * sqflite: ^2.4.1
+### Path manipulation library
+#### * path: ^1.9.0
+### to get commonly used locations on host platform file systems
+#### * path_provider: ^2.1.5
