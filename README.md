@@ -40,3 +40,9 @@
 #### * animated_splash_screen: ^1.3.0
 ### Animated Bottom Navigation Bar
 #### * animated_bottom_navigation_bar: ^1.3.3
+### Flutter plugin for SQLite local database
+#### * sqflite: ^2.4.1
+### Path manipulation library
+#### * path: ^1.9.0
+### to get commonly used locations on host platform file systems
+#### * path_provider: ^2.1.5
