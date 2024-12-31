@@ -18,6 +18,7 @@ class Character {
   String? species;
   String? image;
   String? gender;
+  bool isFavourite;
 
   Character({
     this.id,
@@ -26,5 +27,6 @@ class Character {
     this.species,
     this.image,
     this.gender,
+    this.isFavourite = false,
   });
 }
